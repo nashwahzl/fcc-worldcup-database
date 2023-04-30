@@ -49,12 +49,12 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.games (
     game_id integer NOT NULL,
-    winner_id integer NOT NULL,
-    winner_goals integer NOT NULL,
-    opponent_goals integer NOT NULL,
-    year integer NOT NULL,
     round character varying(255) NOT NULL,
-    opponent_id integer NOT NULL
+    year integer NOT NULL,
+    winner_id integer NOT NULL,
+    opponent_id integer NOT NULL,
+    winner_goals integer NOT NULL,
+    opponent_goals integer NOT NULL
 );
 
 
@@ -88,7 +88,7 @@ ALTER SEQUENCE public.games_game_id_seq OWNED BY public.games.game_id;
 
 CREATE TABLE public.teams (
     team_id integer NOT NULL,
-    name character varying(255)
+    name character varying(255) NOT NULL
 );
 
 
@@ -134,82 +134,82 @@ ALTER TABLE ONLY public.teams ALTER COLUMN team_id SET DEFAULT nextval('public.t
 -- Data for Name: games; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.games VALUES (129, 1, 4, 2, 2018, 'Final', 2);
-INSERT INTO public.games VALUES (130, 3, 2, 0, 2018, 'Third Place', 4);
-INSERT INTO public.games VALUES (131, 2, 2, 1, 2018, 'Semi-Final', 4);
-INSERT INTO public.games VALUES (132, 1, 1, 0, 2018, 'Semi-Final', 3);
-INSERT INTO public.games VALUES (133, 2, 3, 2, 2018, 'Quarter-Final', 5);
-INSERT INTO public.games VALUES (134, 4, 2, 0, 2018, 'Quarter-Final', 6);
-INSERT INTO public.games VALUES (135, 3, 2, 1, 2018, 'Quarter-Final', 7);
-INSERT INTO public.games VALUES (136, 1, 2, 0, 2018, 'Quarter-Final', 8);
-INSERT INTO public.games VALUES (137, 4, 2, 1, 2018, 'Eighth-Final', 9);
-INSERT INTO public.games VALUES (138, 6, 1, 0, 2018, 'Eighth-Final', 10);
-INSERT INTO public.games VALUES (139, 3, 3, 2, 2018, 'Eighth-Final', 11);
-INSERT INTO public.games VALUES (140, 7, 2, 0, 2018, 'Eighth-Final', 12);
-INSERT INTO public.games VALUES (141, 2, 2, 1, 2018, 'Eighth-Final', 13);
-INSERT INTO public.games VALUES (142, 5, 2, 1, 2018, 'Eighth-Final', 14);
-INSERT INTO public.games VALUES (143, 8, 2, 1, 2018, 'Eighth-Final', 15);
-INSERT INTO public.games VALUES (144, 1, 4, 3, 2018, 'Eighth-Final', 16);
-INSERT INTO public.games VALUES (145, 17, 1, 0, 2014, 'Final', 16);
-INSERT INTO public.games VALUES (146, 18, 3, 0, 2014, 'Third Place', 7);
-INSERT INTO public.games VALUES (147, 16, 1, 0, 2014, 'Semi-Final', 18);
-INSERT INTO public.games VALUES (148, 17, 7, 1, 2014, 'Semi-Final', 7);
-INSERT INTO public.games VALUES (149, 18, 1, 0, 2014, 'Quarter-Final', 19);
-INSERT INTO public.games VALUES (150, 16, 1, 0, 2014, 'Quarter-Final', 3);
-INSERT INTO public.games VALUES (151, 7, 2, 1, 2014, 'Quarter-Final', 9);
-INSERT INTO public.games VALUES (152, 17, 1, 0, 2014, 'Quarter-Final', 1);
-INSERT INTO public.games VALUES (153, 7, 2, 1, 2014, 'Eighth-Final', 20);
-INSERT INTO public.games VALUES (154, 9, 2, 0, 2014, 'Eighth-Final', 8);
-INSERT INTO public.games VALUES (155, 1, 2, 0, 2014, 'Eighth-Final', 21);
-INSERT INTO public.games VALUES (156, 17, 2, 1, 2014, 'Eighth-Final', 22);
-INSERT INTO public.games VALUES (157, 18, 2, 1, 2014, 'Eighth-Final', 12);
-INSERT INTO public.games VALUES (158, 19, 2, 1, 2014, 'Eighth-Final', 23);
-INSERT INTO public.games VALUES (159, 16, 1, 0, 2014, 'Eighth-Final', 10);
-INSERT INTO public.games VALUES (160, 3, 2, 1, 2014, 'Eighth-Final', 24);
+INSERT INTO public.games VALUES (1, 'Final', 2018, 179, 180, 4, 2);
+INSERT INTO public.games VALUES (2, 'Third Place', 2018, 181, 182, 2, 0);
+INSERT INTO public.games VALUES (3, 'Semi-Final', 2018, 180, 182, 2, 1);
+INSERT INTO public.games VALUES (4, 'Semi-Final', 2018, 179, 181, 1, 0);
+INSERT INTO public.games VALUES (5, 'Quarter-Final', 2018, 180, 183, 3, 2);
+INSERT INTO public.games VALUES (6, 'Quarter-Final', 2018, 182, 184, 2, 0);
+INSERT INTO public.games VALUES (7, 'Quarter-Final', 2018, 181, 185, 2, 1);
+INSERT INTO public.games VALUES (8, 'Quarter-Final', 2018, 179, 186, 2, 0);
+INSERT INTO public.games VALUES (9, 'Eighth-Final', 2018, 182, 187, 2, 1);
+INSERT INTO public.games VALUES (10, 'Eighth-Final', 2018, 184, 188, 1, 0);
+INSERT INTO public.games VALUES (11, 'Eighth-Final', 2018, 181, 189, 3, 2);
+INSERT INTO public.games VALUES (12, 'Eighth-Final', 2018, 185, 190, 2, 0);
+INSERT INTO public.games VALUES (13, 'Eighth-Final', 2018, 180, 191, 2, 1);
+INSERT INTO public.games VALUES (14, 'Eighth-Final', 2018, 183, 192, 2, 1);
+INSERT INTO public.games VALUES (15, 'Eighth-Final', 2018, 186, 193, 2, 1);
+INSERT INTO public.games VALUES (16, 'Eighth-Final', 2018, 179, 194, 4, 3);
+INSERT INTO public.games VALUES (17, 'Final', 2014, 195, 194, 1, 0);
+INSERT INTO public.games VALUES (18, 'Third Place', 2014, 196, 185, 3, 0);
+INSERT INTO public.games VALUES (19, 'Semi-Final', 2014, 194, 196, 1, 0);
+INSERT INTO public.games VALUES (20, 'Semi-Final', 2014, 195, 185, 7, 1);
+INSERT INTO public.games VALUES (21, 'Quarter-Final', 2014, 196, 197, 1, 0);
+INSERT INTO public.games VALUES (22, 'Quarter-Final', 2014, 194, 181, 1, 0);
+INSERT INTO public.games VALUES (23, 'Quarter-Final', 2014, 185, 187, 2, 1);
+INSERT INTO public.games VALUES (24, 'Quarter-Final', 2014, 195, 179, 1, 0);
+INSERT INTO public.games VALUES (25, 'Eighth-Final', 2014, 185, 198, 2, 1);
+INSERT INTO public.games VALUES (26, 'Eighth-Final', 2014, 187, 186, 2, 0);
+INSERT INTO public.games VALUES (27, 'Eighth-Final', 2014, 179, 199, 2, 0);
+INSERT INTO public.games VALUES (28, 'Eighth-Final', 2014, 195, 200, 2, 1);
+INSERT INTO public.games VALUES (29, 'Eighth-Final', 2014, 196, 190, 2, 1);
+INSERT INTO public.games VALUES (30, 'Eighth-Final', 2014, 197, 201, 2, 1);
+INSERT INTO public.games VALUES (31, 'Eighth-Final', 2014, 194, 188, 1, 0);
+INSERT INTO public.games VALUES (32, 'Eighth-Final', 2014, 181, 202, 2, 1);
 
 
 --
 -- Data for Name: teams; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.teams VALUES (1, 'France');
-INSERT INTO public.teams VALUES (2, 'Croatia');
-INSERT INTO public.teams VALUES (3, 'Belgium');
-INSERT INTO public.teams VALUES (4, 'England');
-INSERT INTO public.teams VALUES (5, 'Russia');
-INSERT INTO public.teams VALUES (6, 'Sweden');
-INSERT INTO public.teams VALUES (7, 'Brazil');
-INSERT INTO public.teams VALUES (8, 'Uruguay');
-INSERT INTO public.teams VALUES (9, 'Colombia');
-INSERT INTO public.teams VALUES (10, 'Switzerland');
-INSERT INTO public.teams VALUES (11, 'Japan');
-INSERT INTO public.teams VALUES (12, 'Mexico');
-INSERT INTO public.teams VALUES (13, 'Denmark');
-INSERT INTO public.teams VALUES (14, 'Spain');
-INSERT INTO public.teams VALUES (15, 'Portugal');
-INSERT INTO public.teams VALUES (16, 'Argentina');
-INSERT INTO public.teams VALUES (17, 'Germany');
-INSERT INTO public.teams VALUES (18, 'Netherlands');
-INSERT INTO public.teams VALUES (19, 'Costa Rica');
-INSERT INTO public.teams VALUES (20, 'Chile');
-INSERT INTO public.teams VALUES (21, 'Nigeria');
-INSERT INTO public.teams VALUES (22, 'Algeria');
-INSERT INTO public.teams VALUES (23, 'Greece');
-INSERT INTO public.teams VALUES (24, 'United States');
+INSERT INTO public.teams VALUES (179, 'France');
+INSERT INTO public.teams VALUES (180, 'Croatia');
+INSERT INTO public.teams VALUES (181, 'Belgium');
+INSERT INTO public.teams VALUES (182, 'England');
+INSERT INTO public.teams VALUES (183, 'Russia');
+INSERT INTO public.teams VALUES (184, 'Sweden');
+INSERT INTO public.teams VALUES (185, 'Brazil');
+INSERT INTO public.teams VALUES (186, 'Uruguay');
+INSERT INTO public.teams VALUES (187, 'Colombia');
+INSERT INTO public.teams VALUES (188, 'Switzerland');
+INSERT INTO public.teams VALUES (189, 'Japan');
+INSERT INTO public.teams VALUES (190, 'Mexico');
+INSERT INTO public.teams VALUES (191, 'Denmark');
+INSERT INTO public.teams VALUES (192, 'Spain');
+INSERT INTO public.teams VALUES (193, 'Portugal');
+INSERT INTO public.teams VALUES (194, 'Argentina');
+INSERT INTO public.teams VALUES (195, 'Germany');
+INSERT INTO public.teams VALUES (196, 'Netherlands');
+INSERT INTO public.teams VALUES (197, 'Costa Rica');
+INSERT INTO public.teams VALUES (198, 'Chile');
+INSERT INTO public.teams VALUES (199, 'Nigeria');
+INSERT INTO public.teams VALUES (200, 'Algeria');
+INSERT INTO public.teams VALUES (201, 'Greece');
+INSERT INTO public.teams VALUES (202, 'United States');
 
 
 --
 -- Name: games_game_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.games_game_id_seq', 160, true);
+SELECT pg_catalog.setval('public.games_game_id_seq', 33, true);
 
 
 --
 -- Name: teams_team_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.teams_team_id_seq', 24, true);
+SELECT pg_catalog.setval('public.teams_team_id_seq', 211, true);
 
 
 --
@@ -237,19 +237,19 @@ ALTER TABLE ONLY public.teams
 
 
 --
--- Name: games fk_games_opponent; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: games games_opponent_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
 ALTER TABLE ONLY public.games
-    ADD CONSTRAINT fk_games_opponent FOREIGN KEY (opponent_id) REFERENCES public.teams(team_id);
+    ADD CONSTRAINT games_opponent_id_fkey FOREIGN KEY (opponent_id) REFERENCES public.teams(team_id);
 
 
 --
--- Name: games fk_games_winner; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: games games_winner_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
 ALTER TABLE ONLY public.games
-    ADD CONSTRAINT fk_games_winner FOREIGN KEY (winner_id) REFERENCES public.teams(team_id);
+    ADD CONSTRAINT games_winner_id_fkey FOREIGN KEY (winner_id) REFERENCES public.teams(team_id);
 
 
 --
